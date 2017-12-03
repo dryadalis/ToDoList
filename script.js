@@ -58,5 +58,12 @@ let toDoList =
      }
 };
 
+let displayTodosButton = document.getElementById('displayTodosButton');
+displayTodosButton.addEventListener('click', function(){
+    toDoList.displayTodos();
+});
 
-
+let toggleAllButton = document.getElementById('toggleAllButton');
+toggleAllButton.addEventListener('click', function(){
+    toDoList.toggleAll();
+})
