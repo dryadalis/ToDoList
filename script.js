@@ -57,13 +57,13 @@ let toDoList =
         this.displayTodos();
      }
 };
+// Conect button with function
+let handlers = {
+    displayTodos: function(){
+        toDoList.displayTodos();
+    }, 
+    toggleAll: function(){
+        toDoList.toggleAll();
+    }
 
-let displayTodosButton = document.getElementById('displayTodosButton');
-displayTodosButton.addEventListener('click', function(){
-    toDoList.displayTodos();
-});
-
-let toggleAllButton = document.getElementById('toggleAllButton');
-toggleAllButton.addEventListener('click', function(){
-    toDoList.toggleAll();
-})
+};
