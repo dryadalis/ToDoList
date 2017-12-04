@@ -61,9 +61,30 @@ let toDoList =
 let handlers = {
     displayTodos: function(){
         toDoList.displayTodos();
-    }, 
+    },
+    addTodo: function(){
+        let addTodoTextInput = document.getElementById('addTodoTextInput');
+        toDoList.addTodo(addTodoTextInput.value);
+        addTodoTextInput.value = ' '; 
+    },
+    changeTodo: function(){
+        let changeTodoPositionNumber = document.getElementById('changeTodoPositionNumber');
+        let changeTodoTextInput = document.getElementById('changeTodoTextInput');
+        toDoList.changeTodo(changeTodoPositionNumber.valueAsNumber, changeTodoTextInput.value);
+        changeTodoPositionNumber.valueAsNumber = " ";
+        changeTodoTextInput.value = " ";
+    },
+    deleteTodo: function() {
+        let deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+        toDoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+        deleteTodoPositionInput.valueAsNumber = " ";
+    },
+    toggleCompleted: function() {
+        let toggleCompletedPositionInput = document.getElementById("toggleCompletedPositionInput");
+        toDoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+        toggleCompletedPositionInput.valueAsNumber = " ";
+    },
     toggleAll: function(){
         toDoList.toggleAll();
     }
-
 };
