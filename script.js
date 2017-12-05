@@ -21,20 +21,16 @@ let toDoList =
             todoText: todoText,
             completed : false
         });
-        this.displayTodos();
     },
     changeTodo: function(position, todoText) {
         this.todos[position].todoText = todoText;
-        this.displayTodos();
     },
     deleteTodo : function(position) {
         this.todos.splice(position, 1);
-        this.displayTodos();
     },
     toggleCompleted : function(position) {
         var todo = this.todos[position];
         todo.completed = !todo.completed; 
-        this.displayTodos();
 
     },
     toggleAll : function () {
@@ -54,18 +50,15 @@ let toDoList =
                 this.todos[i].completed = true;
                 }
             }
-        this.displayTodos();
      }
 };
 // Conect button with function
 let handlers = {
-    displayTodos: function(){
-        toDoList.displayTodos();
-    },
     addTodo: function(){
         let addTodoTextInput = document.getElementById('addTodoTextInput');
         toDoList.addTodo(addTodoTextInput.value);
         addTodoTextInput.value = ' '; 
+        view.displayTodos();
     },
     changeTodo: function(){
         let changeTodoPositionNumber = document.getElementById('changeTodoPositionNumber');
@@ -73,18 +66,45 @@ let handlers = {
         toDoList.changeTodo(changeTodoPositionNumber.valueAsNumber, changeTodoTextInput.value);
         changeTodoPositionNumber.valueAsNumber = " ";
         changeTodoTextInput.value = " ";
+        view.displayTodos();
     },
     deleteTodo: function() {
         let deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
         toDoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
         deleteTodoPositionInput.valueAsNumber = " ";
+        view.displayTodos();
     },
     toggleCompleted: function() {
         let toggleCompletedPositionInput = document.getElementById("toggleCompletedPositionInput");
         toDoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
         toggleCompletedPositionInput.valueAsNumber = " ";
+        view.displayTodos();
     },
     toggleAll: function(){
         toDoList.toggleAll();
+        view.displayTodos();
     }
+};
+
+let view = {
+    displayTodos: function() {
+        let todosUl = document.querySelector('ul');
+        todosUl.innerHTML = " ";
+
+        for (let i = 0; i < toDoList.todos.length; i++){
+            let todoLi = document.createElement('li');
+            let todo = toDoList.todos[i];
+            let todoTextWithCompletion = ' ';
+
+            if (todo.completed === true) {
+                todoTextWithCompletion = '(x)' + " " + todo.todoText;
+            } else {
+                todoTextWithCompletion = '( )' + " " + todo.todoText;
+            }
+
+            todoLi.textContent = todoTextWithCompletion
+            todosUl.appendChild(todoLi)
+        }
+    }
+
 };
