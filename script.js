@@ -1,21 +1,6 @@
 let toDoList = 
 {
     todos: [],
-    displayTodos: function() {
-        if (this.todos.length === 0){
-            console.log("Your todo list is empty!");
-        } else {
-            console.log("My Todos:");
-            for (let i = 0; i < this.todos.length; i++) {
-                if (this.todos[i].completed === true){
-                    console.log("(x)" + this.todos[i].todoText);
-                } else {
-                    console.log("( )" + this.todos[i].todoText);
-                }
-            }
-         }
-    },
-
     addTodo: function(todoText) {
         this.todos.push({
             todoText: todoText,
@@ -68,10 +53,8 @@ let handlers = {
         changeTodoTextInput.value = " ";
         view.displayTodos();
     },
-    deleteTodo: function() {
-        let deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-        toDoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-        deleteTodoPositionInput.valueAsNumber = " ";
+    deleteTodo: function(position) {
+        toDoList.deleteTodo(position);
         view.displayTodos();
     },
     toggleCompleted: function() {
@@ -102,9 +85,28 @@ let view = {
                 todoTextWithCompletion = '( )' + " " + todo.todoText;
             }
 
+            todoLi.id = i; 
             todoLi.textContent = todoTextWithCompletion
+            todoLi.appendChild(this.createDeleteButton());
             todosUl.appendChild(todoLi)
         }
+    },
+    createDeleteButton: function() {
+        let deleteButton = document.createElement('button');
+        deleteButton.textContent = 'delete';
+        deleteButton.className = "deleteButton"; 
+        return deleteButton
+    },
+    setupEventListener: function() {
+        let todosUl = document.querySelector('ul');
+        todosUl.addEventListener('click', function(event){
+           let elementClicked = event.target;
+           if(elementClicked.className === "deleteButton"){
+               handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+           }
+        
+        });
     }
 
 };
+view.setupEventListener();
