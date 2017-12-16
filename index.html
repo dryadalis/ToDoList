@@ -1,29 +1,43 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
         <script src="script.js" defer></script>
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/2374ec542f.js"></script>
+
 
     </head>
     <body>
-        <h1>Todo List</h1>
-        <div>
-            <button onclick="handlers.toggleAll()">Toggle All </button>
-        </div>
-        <div>
-            <button onclick="handlers.addTodo()">Add</button>
-            <input id = "addTodoTextInput" type="text">
-        </div>
-        <div>
-            <button onclick="handlers.changeTodo()">Change Todo</button>
-            <input id="changeTodoPositionNumber" type="number">
-            <input id="changeTodoTextInput" type="text">
-        </div>
-        <div>
-            <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
-            <input id="toggleCompletedPositionInput" type="number">
-        </div>
-        <ul>
-
-        </ul>
+        <center><h1 class = "h1">Todo List <i class="fa fa-check" aria-hidden="true"></i>
+        </h1></center>
+                <center><div>
+                    <input class = "addInput" id = "addTodoTextInput" type="text" placeholder="What needs to be done?">
+                    <button type = "button" class="btn btn-primary"" onclick="handlers.addTodo()" id = "addTodoButton" title="Add todos.">Add</button>
+                </div></center>
+                <div>
+                    <button onclick="handlers.changeTodo()">Change Todo</button>
+                    <input id="changeTodoPositionNumber" type="number">
+                    <input id="changeTodoTextInput" type="text">
+                </div>
+                <div>
+                    <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+                    <input id="toggleCompletedPositionInput" type="number">
+                 </div>
+                 <div>
+                        <button onclick="handlers.toggleAll()">Toggle All </button>
+                </div>
+                <div>
+                    <button onclick="handlers.clearAll()">Clear All</button>
+                </div>
+                 <ul>
+                 </ul>
     </body>
 </html>
