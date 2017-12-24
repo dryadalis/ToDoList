@@ -16,28 +16,32 @@
 
     </head>
     <body>
-        <center><h1 class = "h1">Todo List <i class="fa fa-check" aria-hidden="true"></i>
-        </h1></center>
-                <center><div>
-                    <input class = "addInput" id = "addTodoTextInput" type="text" placeholder="What needs to be done?">
-                    <button type = "button" class="btn btn-primary"" onclick="handlers.addTodo()" id = "addTodoButton" title="Add todos.">Add</button>
-                </div></center>
-                <div>
-                    <button onclick="handlers.changeTodo()">Change Todo</button>
-                    <input id="changeTodoPositionNumber" type="number">
-                    <input id="changeTodoTextInput" type="text">
-                </div>
-                <div>
-                    <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
-                    <input id="toggleCompletedPositionInput" type="number">
-                 </div>
-                 <div>
-                        <button onclick="handlers.toggleAll()">Toggle All </button>
-                </div>
-                <div>
-                    <button onclick="handlers.clearAll()">Clear All</button>
-                </div>
-                 <ul>
-                 </ul>
+        <center><h1 class = "h1">Todo List <i class="fa fa-check" aria-hidden="true"></i></h1></center>
+            <center><div>
+                <input class = "addInput" id = "addTodoTextInput" type="text" placeholder="What needs to be done?" autofocus>
+                <button type = "button" class="btn btn-primary" onclick="handlers.addTodo()" id = "addTodoButton" title="Add todos">Add</button>
+            </div></center>
+            <div class = "container">
+                <ul class="todo-list">
+                </ul>
+            </div>
+            <div>
+                    <button onclick="handlers.clearAll()" title = "Clear all!" class = "deleteAllButton"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </div>
+            <div>
+                <button onclick="handlers.changeTodo()">Change Todo</button>
+                <input id="changeTodoPositionNumber" type="number">
+                <input id="changeTodoTextInput" type="text">
+            </div>
+            <div>
+                <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+                <input id="toggleCompletedPositionInput" type="number">
+             </div>
+            <div>
+                <button onclick="handlers.toggleAll()">Toggle All </button>
+            </div>
+            <div>
+                <a href="#" class="button tick"></a>
+            </div>
     </body>
 </html>

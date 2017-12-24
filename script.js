@@ -74,7 +74,7 @@ let handlers = {
     clearAll : function() {
         toDoList.clearAll();
         view.displayTodos();
-    }
+    },
 };
 
 let view = {
@@ -99,7 +99,7 @@ let view = {
     createDeleteButton: function () {
         let deleteButton = document.createElement('button');
         deleteButton.classList.add('deleteButton');
-        deleteButton.textContent = 'X';
+        deleteButton.textContent = "X"
         deleteButton.className = "deleteButton";
             return deleteButton
     },
@@ -111,7 +111,7 @@ let view = {
                 handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
             }
         });
-    }
+    },
 };
 view.setupEventListener();
 
@@ -124,3 +124,4 @@ document.getElementById('addTodoTextInput')
 
     }
 });
+
