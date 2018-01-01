@@ -25,13 +25,23 @@
     font-weight: bold;
 }
 .deleteAllButton {
+    display: flex;
+    align-items: flex-end;
     background-color: white;
     border: none;
-    float: left;
+    float: right;
     font-size: 18px;
+
 }
 .todo-list {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+.quote-box {
+    width: 350px;
+    height: 250px;
+    border: 2px solid #ccc;
+    margin: 5px;
+
 }
